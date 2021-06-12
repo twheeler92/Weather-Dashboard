@@ -1,3 +1,24 @@
 .current {
    border: solid 1px;
 }
+
+#fiveDay {
+    display: flex;
+    flex-direction: row;
+}
+
+.fiveDAY {
+    margin: 5px;
+    border: solid 1px;
+}
+
+.uv-index-low{
+    background-color: green;
+}
+
+.uv-index-med{
+    background-color: yellow;
+}
+.uv-index-high{
+    background-color: red;
+}
