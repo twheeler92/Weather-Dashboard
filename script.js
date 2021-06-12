@@ -59,6 +59,7 @@ function renderWeather(data, city) {
     wind = data.current.wind_speed;
     humid = data.current.humidity;
     icon = data.current.weather[0].icon.toString();
+    iconLink = "http://openweathermap.org/img/w/" + icon + ".png";
     uv = data.current.uvi;
     var indexUv = "";
 
@@ -72,7 +73,7 @@ function renderWeather(data, city) {
         indexUv ="high";
     }
 
-    var currentHtml = '<div class="current"><h1>' + city + ' | ' + convertDate(date) + '</h1><p>Temp: ' + temp + ' F</p><p>Wind: ' + wind + ' MPH</p><p>Humidity: ' + humid + ' %</p><p class="uv-index-' + indexUv + '">UV Index: ' + uv + '</p></div>';
+    var currentHtml = '<div class="current"><h1>' + city + ' | ' + convertDate(date) + '<img src="' + iconLink + '" alt=""></h1><p>Temp: ' + temp + ' F</p><p>Wind: ' + wind + ' MPH</p><p>Humidity: ' + humid + ' %</p><p class="uv-index-' + indexUv + '">UV Index: ' + uv + '</p></div>';
 
     console.log('City: ', city);
     console.log('Date: ', convertDate(date));
@@ -97,8 +98,9 @@ function render5Day(data) {
         tempFD = data.daily[i].temp.max;
         windFD = data.daily[i].wind_speed;
         humidFD = data.daily[i].humidity;
-        
-        var fiveDayHtml = '<div  class="fiveDAY"><h3>' + convertDate(dateFD) + '</h3><p>ICON: ' + iconFD + '</p><p>Temp: ' + tempFD + ' F</p><p>Wind: ' + windFD + ' MPH</p><p>Humidity: ' + humidFD + ' %</p></div>';
+        iconLinkFD = "http://openweathermap.org/img/w/" + iconFD + ".png";
+
+        var fiveDayHtml = '<div  class="fiveDAY"><h3>' + convertDate(dateFD) + '</h3><p>ICON: <img src="' + iconLinkFD + '" alt=""></p><p>Temp: ' + tempFD + ' F</p><p>Wind: ' + windFD + ' MPH</p><p>Humidity: ' + humidFD + ' %</p></div>';
 
         console.log('test five day :', i);
         console.log('date: ', convertDate(dateFD));
