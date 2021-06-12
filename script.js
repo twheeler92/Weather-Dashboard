@@ -2,6 +2,9 @@ var userInput = "";
 var APIKey = "ec0096873f812a395a9ca6d92f3c0beb";
 
 $('#searchButton').click(function () {
+    var clear = "";
+    $('#fiveDay').html(clear);
+
     console.log("button works");
     userInput = document.getElementById('userInput').value;
     console.log("User input: ", userInput);
@@ -60,13 +63,13 @@ function renderWeather(data, city) {
     var indexUv = "";
 
     if (uv <=2 ) {
-        indexUv ="low"
+        indexUv ="low";
     }
-    if (uv <=7) {
-        indexUv ="med"
+    else if (uv <=7) {
+        indexUv ="med";
     }
-    if (uv >= 8) {
-        indexUv ="high"
+    else if (uv >= 8) {
+        indexUv ="high";
     }
 
     var currentHtml = '<div class="current"><h1>' + city + ' | ' + convertDate(date) + '</h1><p>Temp: ' + temp + ' F</p><p>Wind: ' + wind + ' MPH</p><p>Humidity: ' + humid + ' %</p><p class="uv-index-' + indexUv + '">UV Index: ' + uv + '</p></div>';
